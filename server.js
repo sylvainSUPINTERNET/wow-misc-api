@@ -13,18 +13,18 @@ let morgan = require('morgan');
 api.use(morgan("combined"));
 
 
+// parse application/x-www-form-urlencoded
+api.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+api.use(bodyParser.json());
+
 
 //routing
 let SpellRouter = require('./router/spell');
 
 
-
-
-api.get('/', function(req,res){
-    console.log("route / ",SpellRouter.getTest())
-   res.send("ok")
-});
-
+api.use('/spell', SpellRouter);
 
 
 
