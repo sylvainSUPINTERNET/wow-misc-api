@@ -27,7 +27,7 @@ api.use(bodyParser.json());
 let SpellRouter = require('./router/spell');
 
 
-
+//templating default url : /public/foo_folder/foo_file
 api.use("/public", express.static(path.join(__dirname, 'public')));
 
 
