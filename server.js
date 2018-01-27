@@ -5,7 +5,11 @@
 const express = require('express');
 const api = express();
 const bodyParser = require('body-parser');
+const path = require('path');
 
+
+const Twig = require('twig'),
+    twig = Twig.twig;
 
 
 //debug
@@ -19,12 +23,25 @@ api.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 api.use(bodyParser.json());
 
-
-//routing
+//routing config
 let SpellRouter = require('./router/spell');
 
 
+
+api.use("/public", express.static(path.join(__dirname, 'public')));
+
+
+
 api.use('/spell', SpellRouter);
+
+
+
+//test
+api.get('/', function(req,res){
+    res.render('index.twig', {
+        message : "Hello World"
+    });
+});
 
 
 
