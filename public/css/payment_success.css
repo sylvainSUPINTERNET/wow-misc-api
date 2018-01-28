@@ -1,0 +1,11 @@
+body {
+    background-image: url("/public/img/payment_success_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.messagethx{
+    background: whitesmoke;
+}
+
+

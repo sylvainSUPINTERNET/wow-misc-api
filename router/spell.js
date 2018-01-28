@@ -10,11 +10,18 @@ const Twig = require('twig'),
 
 
 
-/*
-ROUTE NAME : /spell/list => GET
-HTTP METHOD : GET
-PARAMS : N / A
+/**
+ * @api {get} /user/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
  */
+
+
 spellRouter.get('/list', function(req, res) {
     res.status(200).json({error : false, message:"Liste des spells", code_http: "200"})
 });
