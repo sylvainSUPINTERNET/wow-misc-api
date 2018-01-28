@@ -1,11 +1,7 @@
 'use strict';
 
-
-const publicKey = 'pk_test_9bxDnvMC2ibAP712AUoJIzR2';
-const secretKey = 'sk_test_Uh8zWsJzX1jVs1JjcNCE71Ay';
-
-
-const stripe = require("stripe")(secretKey);
+const keys = require('./keys.config');
+const stripe = require("stripe")(keys.private);
 
 
 class StripePayment {
@@ -28,6 +24,6 @@ class StripePayment {
     }
 }
 
-let stripeConfig = new StripePayment(stripe,publicKey, secretKey);
+let stripeConfig = new StripePayment(stripe,keys.public, keys.private);
 
 module.exports = stripeConfig;
